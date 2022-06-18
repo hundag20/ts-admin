@@ -10,7 +10,7 @@
 				<table id="sorted" class="table table-striped table-bordered">
 				<thead>
 				<tr>
-							<th>Num</th>
+							<th>Id</th>
 			<th>Session id</th>
 			<th>License id</th>
 
@@ -24,7 +24,7 @@
 				if($ussd) foreach ($ussd as $ussds):
 					?>
 					<tr>
-		<td><?php echo $ussds['num']?></td>
+		<td><?php echo $ussds['id']?></td>
 		<td><?php echo $ussds['session_id']?></td>
 		<td><?php echo $ussds['license_id']?></td>
 
