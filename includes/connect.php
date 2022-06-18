@@ -1,10 +1,10 @@
-<!--<?php 
+<?php 
 		$link = mysqli_connect("127.0.0.1", "etmilestonecom_ts_user", "ts_password");
 		mysqli_select_db($link, "etmilestonecom_trvtps");
 		mysqli_query($link, "SET CHARACTER SET utf8");
 		?> -->
 
-<!--?php
+<!--php
 		$link = mysqli_connect("127.0.0.1", "root", "root",);
 		if (mysqli_connect_errno()) {
 			echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -39,6 +39,7 @@ DONE: 11. do delete subscribers
 //pie
 //DONE: 1. percentage of activated users (piechart)
 //DONE: 1. addpercentage of suspended and fined users (piechart)
+//DONE: 13. do create announcement
 
 - TODO: do pdf formatted report
 
@@ -52,10 +53,9 @@ DONE: 11. do delete subscribers
 
 
 
-*TODO: 13. do create announcement
-*TODO: 8. add forgot password
+TODO:8. add forgot password
 
-TODO: 1. fix search
+TODO:1. fix search
 TODO:2. fix id display and rank
 TODO:3. remove pwd from returned data
 

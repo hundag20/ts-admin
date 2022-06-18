@@ -67,8 +67,8 @@ function myFunction() {
         document.getElementById('drivers-message-field-id').style.display = 'block';
         document.getElementById('allroles-message-field-id').style.display = 'none';
     } else if (document.getElementById('roleid').value == "all") {
-        document.getElementById('officer-message-field-id').style.display = 'none';
-        document.getElementById('driver-message-field-id').style.display = 'none';
+        document.getElementById('officers-message-field-id').style.display = 'none';
+        document.getElementById('drivers-message-field-id').style.display = 'none';
         document.getElementById('allroles-message-field-id').style.display = 'block';
     }
 }
