@@ -185,23 +185,17 @@
             <div class="row row-cols-2">
                 <div class="col">
                     <div class="card mb-4">
-                        <div class="card-header"><strong>Chart</strong><span class="small ms-1">Line</span>
+                        <div class="card-header"><strong>Tickets issued</strong>
                         </div>
                         <div class="card-body">
                             <div class="example">
                                 <ul class="nav nav-tabs" role="tablist">
                                     <li class="nav-item"><a class="nav-link active" data-coreui-toggle="tab"
-                                            href="#preview-219" role="tab">
+                                            href="#preview-800" role="tab">
                                             <svg class="icon me-2">
                                                 <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-media-play">
                                                 </use>
-                                            </svg>Preview</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="http://www.chartjs.org/"
-                                            target="_blank">
-                                            <svg class="icon me-2">
-                                                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-code">
-                                                </use>
-                                            </svg>Code</a></li>
+                                            </svg>in the past month</a></li>
                                 </ul>
                                 <div class="tab-content rounded-bottom">
                                     <div class="tab-pane p-3 active preview" role="tabpanel" id="preview-219">
@@ -216,25 +210,20 @@
                 </div>
                 <div class="col">
                     <div class="card mb-4">
-                        <div class="card-header"><strong>Chart</strong><span class="small ms-1">Bar</span></div>
+                        <div class="card-header"><strong>Tickets issued</strong></div>
                         <div class="card-body">
                             <div class="example">
-                                <ul class="nav nav-tabs" role="tablist">
+                                <ul id="bar-id" class="nav nav-tabs" role="tablist">
                                     <li class="nav-item"><a class="nav-link active" data-coreui-toggle="tab"
-                                            href="#preview-477" role="tab">
+                                            href="#preview-799" role="tab">
                                             <svg class="icon me-2">
                                                 <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-media-play">
                                                 </use>
-                                            </svg>Preview</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="http://www.chartjs.org/"
-                                            target="_blank">
-                                            <svg class="icon me-2">
-                                                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-code">
-                                                </use>
-                                            </svg>Code</a></li>
+                                            </svg>in the past week</a></li>
+
                                 </ul>
                                 <div class="tab-content rounded-bottom">
-                                    <div class="tab-pane p-3 active preview" role="tabpanel" id="preview-477">
+                                    <div class="tab-pane p-3 active preview" role="tabpanel" id="preview-799">
                                         <div class="c-chart-wrapper">
                                             <canvas id="canvas-2"></canvas>
                                         </div>
@@ -273,36 +262,23 @@
 
                 <div class="col">
                     <div class="card mb-4">
-                        <div class="card-header"><strong>Chart</strong><span class="small ms-1">Radar</span>
+                        <div class="card-header"><strong>Total fines comparison in each offense level</strong>
                         </div>
                         <div class="card-body">
                             <div class="example">
                                 <ul id="donut-id" class="nav nav-tabs" role="tablist">
                                     <li class="nav-item"><a class="nav-link active" data-coreui-toggle="tab"
-                                            href="#preview-799" role="tab">
+                                            href="#preview-7991" role="tab">
                                             <svg class="icon me-2">
                                                 <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-media-play">
                                                 </use>
-                                            </svg>Preview</a></li>
-                                    <li class="nav-item"><a class="nav-link" data-coreui-toggle="tab"
-                                            href="#preview-800" role="tab">
-                                            <svg class="icon me-2">
-                                                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-media-play">
-                                                </use>
-                                            </svg>Preview</a></li>
+                                            </svg>Ticket frequency | offense level</a></li>
                                     </li>
                                 </ul>
                                 <div class="tab-content rounded-bottom">
-                                    <div class="tab-pane p-3 active preview" role="tabpanel" id="preview-799">
+                                    <div class="tab-pane p-3 active preview" role="tabpanel" id="preview-7991">
                                         <div class="c-chart-wrapper">
                                             <canvas id="canvas-3"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-content rounded-bottom">
-                                    <div class="tab-pane p-3 preview" role="tabpanel" id="preview-800">
-                                        <div class="c-chart-wrapper">
-                                            <canvas id="canvas-7"></canvas>
                                         </div>
                                     </div>
                                 </div>
@@ -328,26 +304,25 @@
 <script src="vendors/@coreui/chartjs/js/coreui-chartjs.js"></script>
 <script src="js/charts.js"></script>
 <script>
-var donut_nav = document.getElementById("donut-id")
-var donut_prev_1 = document.getElementById("preview-799")
-var donut_prev_2 = document.getElementById("preview-800")
+// var bar_nav = document.getElementById("bar-id")
+// var bar_prev_1 = document.getElementById("preview-799")
+// var bar_prev_2 = document.getElementById("preview-800")
 
-donut_nav.addEventListener("click", function(e) {
-    has_class = donut_nav.querySelector(".active");
-    console.log(e.target.href)
-    if (e.target.href.includes('#preview-799')) {
-        donut_prev_2.classList.remove("active");
-        donut_prev_1.classList.add("active");
-    } else if (e.target.href.includes('#preview-800')) {
-        donut_prev_1.classList.remove("active");
-        donut_prev_2.classList.add("active");
-    }
-});
+// bar_nav.addEventListener("click", function(e) {
+//     has_class = bar_nav.querySelector(".active");
+//     console.log(e.target.href)
+//     if (e.target.href.includes('#preview-799')) {
+//         bar_prev_2.classList.remove("active");
+//         bar_prev_1.classList.add("active");
+//     } else if (e.target.href.includes('#preview-800')) {
+//         bar_prev_1.classList.remove("active");
+//         bar_prev_2.classList.add("active");
+//     }
+// });
 </script>
 <script>
 </script>
 
 
 
-
-<!-- <?php include "includes/footer.php";?> -->
+<?php include "includes/footer.php";?>

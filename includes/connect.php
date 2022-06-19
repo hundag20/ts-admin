@@ -1,4 +1,4 @@
-<?php 
+<?-- php 
 		$link = mysqli_connect("127.0.0.1", "etmilestonecom_ts_user", "ts_password");
 		mysqli_select_db($link, "etmilestonecom_trvtps");
 		mysqli_query($link, "SET CHARACTER SET utf8");
@@ -40,6 +40,8 @@ DONE: 11. do delete subscribers
 //DONE: 1. percentage of activated users (piechart)
 //DONE: 1. addpercentage of suspended and fined users (piechart)
 //DONE: 13. do create announcement
+//DONE: 1. fix search
+//DONE: 2. fix id display and rank
 
 - TODO: do pdf formatted report
 
@@ -55,8 +57,6 @@ DONE: 11. do delete subscribers
 
 TODO:8. add forgot password
 
-TODO:1. fix search
-TODO:2. fix id display and rank
 TODO:3. remove pwd from returned data
 
 TODO:5. do validations at save.php

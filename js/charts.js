@@ -9,13 +9,7 @@
 // random Numbers
 const random = () => Math.round(Math.random() * 100); // eslint-disable-next-line no-unused-vars
 
-let polarAreaChart,
-  pieChart,
-  radarChart,
-  doughnutChart2,
-  doughnutChart,
-  barChart,
-  lineChart;
+let polarAreaChart, pieChart, radarChart, doughnutChart, barChart, barChart2;
 
 const xhttp = new XMLHttpRequest();
 // Instantiating the request object
@@ -27,85 +21,100 @@ xhttp.onload = function () {
 
   //xhttp.open("GET", "ajax_info.txt", true);
   const pieData = data.activesPercentage;
+  const dognutData = data.dognutStats;
+  const barData = data.barStats;
+  let barDataSet1 = [];
+  let barDataSet2 = [];
+  barData.pastMonth.forEach((el, i) => {
+    if (i != 31) {
+      barDataSet1[i] = el;
+      barDataSet2[i] = (el / barData.pastMonth[31]) * 100;
+    }
+  });
   console.log("pieData", pieData);
+  console.log("dognutData", dognutData);
+  console.log("barData", barData);
 
-  lineChart = new Chart(document.getElementById("canvas-1"), {
-    type: "line",
-    data: {
-      labels: ["January", "February", "March", "April", "May", "June", "July"],
-      datasets: [
-        {
-          label: "My First dataset",
-          backgroundColor: "rgba(220, 220, 220, 0.2)",
-          borderColor: "rgba(220, 220, 220, 1)",
-          pointBackgroundColor: "rgba(220, 220, 220, 1)",
-          pointBorderColor: "#fff",
-          data: [
-            random(),
-            random(),
-            random(),
-            random(),
-            random(),
-            random(),
-            random(),
-          ],
-        },
-        {
-          label: "My Second dataset",
-          backgroundColor: "rgba(151, 187, 205, 0.2)",
-          borderColor: "rgba(151, 187, 205, 1)",
-          pointBackgroundColor: "rgba(151, 187, 205, 1)",
-          pointBorderColor: "#fff",
-          data: [
-            random(),
-            random(),
-            random(),
-            random(),
-            random(),
-            random(),
-            random(),
-          ],
-        },
-      ],
-    },
-    options: {
-      responsive: true,
-    },
-  }); // eslint-disable-next-line no-unused-vars
+  // lineChart = new Chart(document.getElementById("canvas-1"), {
+  //   type: "line",
+  //   data: {
+  //     labels: ["January", "February", "March", "April", "May", "June", "July"],
+  //     datasets: [
+  //       {
+  //         label: "My First dataset",
+  //         backgroundColor: "rgba(220, 220, 220, 0.2)",
+  //         borderColor: "rgba(220, 220, 220, 1)",
+  //         pointBackgroundColor: "rgba(220, 220, 220, 1)",
+  //         pointBorderColor: "#fff",
+  //         data: [
+  //           random(),
+  //           random(),
+  //           random(),
+  //           random(),
+  //           random(),
+  //           random(),
+  //           random(),
+  //         ],
+  //       },
+  //       {
+  //         label: "My Second dataset",
+  //         backgroundColor: "rgba(151, 187, 205, 0.2)",
+  //         borderColor: "rgba(151, 187, 205, 1)",
+  //         pointBackgroundColor: "rgba(151, 187, 205, 1)",
+  //         pointBorderColor: "#fff",
+  //         data: [
+  //           random(),
+  //           random(),
+  //           random(),
+  //           random(),
+  //           random(),
+  //           random(),
+  //           random(),
+  //         ],
+  //       },
+  //     ],
+  //   },
+  //   options: {
+  //     responsive: true,
+  //   },
+  // });
+  // eslint-disable-next-line no-unused-vars
 
   barChart = new Chart(document.getElementById("canvas-2"), {
     type: "bar",
     data: {
-      labels: ["January", "February", "March", "April", "May", "June", "July"],
+      labels: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
       datasets: [
         {
-          backgroundColor: "rgba(220, 220, 220, 0.5)",
+          backgroundColor: "rgba(0, 0, 255, 0.8)",
           borderColor: "rgba(220, 220, 220, 0.8)",
           highlightFill: "rgba(220, 220, 220, 0.75)",
           highlightStroke: "rgba(220, 220, 220, 1)",
+          label: "total tickets",
           data: [
-            random(),
-            random(),
-            random(),
-            random(),
-            random(),
-            random(),
-            random(),
+            barData.pastWeek.sun,
+            barData.pastWeek.mon,
+            barData.pastWeek.tue,
+            barData.pastWeek.wed,
+            barData.pastWeek.thu,
+            barData.pastWeek.fri,
+            barData.pastWeek.sat,
           ],
         },
         {
-          backgroundColor: "rgba(151, 187, 205, 0.5)",
+          backgroundColor: "rgba(0, 0, 255, 0.4)",
           borderColor: "rgba(151, 187, 205, 0.8)",
           highlightFill: "rgba(151, 187, 205, 0.75)",
           highlightStroke: "rgba(151, 187, 205, 1)",
+          label: "percentage %",
           data: [
-            random(),
-            random(),
-            random(),
-            random(),
-            random(),
-            random(),
-            random(),
+            (barData.pastWeek.sun / barData.pastWeek.tot) * 100,
+            (barData.pastWeek.mon / barData.pastWeek.tot) * 100,
+            (barData.pastWeek.tue / barData.pastWeek.tot) * 100,
+            (barData.pastWeek.wed / barData.pastWeek.tot) * 100,
+            (barData.pastWeek.thu / barData.pastWeek.tot) * 100,
+            (barData.pastWeek.fri / barData.pastWeek.tot) * 100,
+            (barData.pastWeek.sat / barData.pastWeek.tot) * 100,
           ],
         },
       ],
@@ -114,33 +123,108 @@ xhttp.onload = function () {
       responsive: true,
     },
   }); // eslint-disable-next-line no-unused-vars
+
+  barChart2 = new Chart(document.getElementById("canvas-1"), {
+    type: "bar",
+    data: {
+      labels: [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21",
+        "22",
+        "23",
+        "24",
+        "25",
+        "26",
+        "27",
+        "28",
+        "29",
+        "30",
+        "31",
+      ],
+      datasets: [
+        {
+          backgroundColor: "rgba(0, 0, 255, 0.8)",
+          borderColor: "rgba(220, 220, 220, 0.8)",
+          highlightFill: "rgba(220, 220, 220, 0.75)",
+          highlightStroke: "rgba(220, 220, 220, 1)",
+          label: "total tickets",
+          data: barDataSet1,
+        },
+        {
+          backgroundColor: "rgba(0, 0, 255, 0.4)",
+          borderColor: "rgba(151, 187, 205, 0.8)",
+          highlightFill: "rgba(151, 187, 205, 0.75)",
+          highlightStroke: "rgba(151, 187, 205, 1)",
+          label: "percentage %",
+          data: barDataSet2,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+    },
+  });
 
   doughnutChart = new Chart(document.getElementById("canvas-3"), {
     type: "doughnut",
     data: {
-      labels: ["Red", "Green", "Yellow"],
-      datasets: [
-        {
-          data: [300, 50, 100],
-          backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
-          hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
-        },
+      labels: [
+        "level 1",
+        "level 2",
+        "level 3",
+        "level 4",
+        "level 5",
+        "level 6",
+        "level 7",
       ],
-    },
-    options: {
-      responsive: true,
-    },
-  }); // eslint-disable-next-line no-unused-vars
-
-  doughnutChart2 = new Chart(document.getElementById("canvas-7"), {
-    type: "doughnut",
-    data: {
-      labels: ["key", "lomi", "bicha"],
       datasets: [
         {
-          data: [300, 50, 100],
-          backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
-          hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+          data: [
+            dognutData.levels[0],
+            dognutData.levels[1],
+            dognutData.levels[2],
+            dognutData.levels[3],
+            dognutData.levels[4],
+            dognutData.levels[5],
+            dognutData.levels[6],
+          ],
+          backgroundColor: [
+            "#FF6384",
+            "#36A2EB",
+            "#FFCE56",
+            "#ff0000",
+            "#00FF00",
+            "#6a0dad",
+            "#663300",
+          ],
+          hoverBackgroundColor: [
+            "#FF6384",
+            "#36A2EB",
+            "#FFCE56",
+            "#ff0000",
+            "#00FF00",
+            "#6a0dad",
+            "#663300",
+          ],
         },
       ],
     },
