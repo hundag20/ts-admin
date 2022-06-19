@@ -13,7 +13,7 @@ let polarAreaChart, pieChart, radarChart, doughnutChart, barChart, barChart2;
 
 const xhttp = new XMLHttpRequest();
 // Instantiating the request object
-xhttp.open("GET", "http://localhost/ts/admin/getReports");
+xhttp.open("GET", "https://etmilestone.com/ts/admin/getReports");
 xhttp.onload = function () {
   const resp = JSON.parse(this.responseText);
   console.log(resp.message);
