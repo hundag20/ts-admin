@@ -42,22 +42,16 @@ DONE: 11. do delete subscribers
 //DONE: 13. do create announcement
 //DONE: 1. fix search
 //DONE: 2. fix id display and rank
-
-- TODO: do pdf formatted report
-
-//barchart
-//TODO: 2. total number of fines issued in each day/week/month/(comparisons bar chart)
-
-//dognut
-//TODO: 5. total number of tickets issued in each violation level (comparisons dognut)
-}
-(if charts not downloadable then go back to node.js and save all daily,weekly,monthly, annual reports and put download last(day's, week's, month's, year's) report @ web)
+//DONE: 2. (barchart) total number of fines issued in each day/week/month/(comparisons bar chart)
+//DONE: 5. (dognut) total number of tickets issued in each violation level (comparisons dognut)
 
 
+TODO:1 do pdf formatted report
 
-TODO:8. add forgot password
+TODO:2. add forgot password for officer
+TODO:3. add forgot password for admin
 
-TODO:3. remove pwd from returned data
+TODO:4. remove pwd from returned data
 
 TODO:5. do validations at save.php
 
