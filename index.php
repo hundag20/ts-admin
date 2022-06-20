@@ -55,7 +55,7 @@
 <script>
 function myFunc() {
     var email = document.getElementById('email').value;
-    window.location.replace(`http://localhost:3002/ts/admin/resetPwd?email=${email}`);
+    window.location.replace(`https://etmilestone.com/ts/admin/resetPwd?email=${email}`);
 }
 </script>
 
