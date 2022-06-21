@@ -44,22 +44,23 @@ DONE: 11. do delete subscribers
 //DONE: 2. fix id display and rank
 //DONE: 2. (barchart) total number of fines issued in each day/week/month/(comparisons bar chart)
 //DONE: 5. (dognut) total number of tickets issued in each violation level (comparisons dognut)
+//DONE: 2. add forgot password for officer
+//DONE: 3. add forgot password for admin
 
+TODO:1. do pdf formatted report
 
-TODO:1 do pdf formatted report
+TODO:2. remove pwd from returned data
 
-TODO:2. add forgot password for officer
-TODO:3. add forgot password for admin
+TODO:3. do validations at save.php
 
-TODO:4. remove pwd from returned data
+TODO:4. do error handling/viewing
 
-TODO:5. do validations at save.php
+TODO:5. add progress animation for add file
 
-TODO:6. do error handling/viewing
+TODO:6. fix ui {input fields, coloring}
 
-TODO:7. add progress animation for add file.
-
-TODO:8. fix ui {input fields, coloring}
+TODO:7. download the images button for charts 
+TODO:8. fix add new user 
 
 NOTE: handle all server side input/data validation @ save.php
 NOTE: handle all sql errors like duplicate entry @ save.php

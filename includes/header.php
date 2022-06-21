@@ -131,11 +131,6 @@
                             class="pull-right"><?=counting("vehicle", "id")?></span></a></li>
                 <li><a href="logout.php"><i class="glyphicon glyphicon-log-out"></i> Logout</a></li>
             </ul>
-            <div class="visit">
-                <p class="text-center">Created using MAGE &hearts;</p>
-                <a href="https://github.com/housamz/php-mysql-admin-panel-generator" target="_blank">Visit
-                    Project</a>
-            </div>
             <!-- </div> -->
         </nav><!-- /end sidebar -->
 
