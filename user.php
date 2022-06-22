@@ -14,11 +14,6 @@
         <tr>
             <th>ID</th>
             <th>Username</th>
-            <th>Password</th>
-            <th>Status</th>
-            <th>Suspended for</th>
-            <th>Points</th>
-            <th>First time</th>
             <th>First name</th>
             <th>Middle name</th>
             <th>Last name</th>
@@ -28,7 +23,6 @@
             <th>Email</th>
             <th>Level</th>
             <th>Region</th>
-            <th>Authority</th>
             <th>Yob</th>
             <th>Nationality</th>
             <th>Subcity</th>
@@ -46,11 +40,6 @@
     <tr>
         <td><?php echo $users['ID']?></td>
         <td><?php echo $users['username']?></td>
-        <td><?php echo $users['password']?></td>
-        <td><?php echo $users['status']?></td>
-        <td><?php echo $users['suspended_for']?></td>
-        <td><?php echo $users['points']?></td>
-        <td><?php echo $users['first_time']?></td>
         <td><?php echo $users['first_name']?></td>
         <td><?php echo $users['middle_name']?></td>
         <td><?php echo $users['last_name']?></td>
@@ -60,7 +49,6 @@
         <td><?php echo $users['email']?></td>
         <td><?php echo $users['level']?></td>
         <td><?php echo $users['region']?></td>
-        <td><?php echo $users['authority']?></td>
         <td><?php echo $users['yob']?></td>
         <td><?php echo $users['nationality']?></td>
         <td><?php echo $users['subcity']?></td>

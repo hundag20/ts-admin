@@ -1,4 +1,17 @@
+<script>
+function alert_err(msg) {
+    alert(msg);
+}
+</script>
 <?php
+function die_func($msg){
+	echo '<script type="text/javascript">',
+	'alert("'.$msg.'");',
+	'history.back()',
+	'</script>'
+	;
+}
+error_reporting(E_ERROR | E_PARSE);
 		include("includes/connect.php");
 
 		$cat = $_POST['cat'];
@@ -8,6 +21,7 @@
 		$id = $_POST['id'];
 		$id_get = $_GET['id'];
 
+		try{
 		
 				if($cat == "announcement" || $cat_get == "announcement") {
 					$announced_by = addslashes(htmlentities($_POST["announced_by"], ENT_QUOTES));
@@ -26,10 +40,13 @@ if($roles == "officers"){
 }
 				if($act == "add") {
 					mysqli_query($link, "INSERT INTO `announcement` (  `announced_by` , `roles` , `message` ) VALUES ( '".$announced_by."' , '".$roles."' , '".$message."' ) ");
+die_func(mysqli_error($link));
 				}elseif ($act == "edit") {
-					mysqli_query($link, "UPDATE `announcement` SET  `announced_by` =  '".$announced_by."' , `date` =  '".$date."' , `roles` =  '".$roles."' , `message` =  '".$message."'  WHERE `id` = '".$id."' "); 
+					mysqli_query($link, "UPDATE `announcement` SET  `announced_by` =  '".$announced_by."' , `date` =  '".$date."' , `roles` =  '".$roles."' , `message` =  '".$message."'  WHERE `id` = '".$id."' ");
+die_func(mysqli_error($link));
 					}elseif ($act_get == "delete") {
 						mysqli_query($link, "DELETE FROM `announcement` WHERE id = '".$id_get."' ");
+die_func(mysqli_error($link));
 					}
 					header("location:"."announcement.php");
 				}
@@ -51,10 +68,13 @@ $signature_pic = addslashes(htmlentities($_POST["signature_pic"], ENT_QUOTES));
 
 				if($act == "add") {
 					mysqli_query($link, "INSERT INTO `fine` (  `issued_to` , `issued_by` , `location` , `date` , `time` , `date_time` , `offence_level` , `offence_code` , `plate_num` , `remark` , `payment_order_num` , `signature_pic` ) VALUES ( '".$issued_to."' , '".$issued_by."' , '".$location."' , '".$date."' , '".$time."' , '".$date_time."' , '".$offence_level."' , '".$offence_code."' , '".$plate_num."' , '".$remark."' , '".$payment_order_num."' , '".$signature_pic."' ) ");
+die_func(mysqli_error($link));
 				}elseif ($act == "edit") {
-					mysqli_query($link, "UPDATE `fine` SET  `issued_to` =  '".$issued_to."' , `issued_by` =  '".$issued_by."' , `location` =  '".$location."' , `date` =  '".$date."' , `time` =  '".$time."' , `date_time` =  '".$date_time."' , `offence_level` =  '".$offence_level."' , `offence_code` =  '".$offence_code."' , `plate_num` =  '".$plate_num."' , `remark` =  '".$remark."' , `payment_order_num` =  '".$payment_order_num."' , `signature_pic` =  '".$signature_pic."'  WHERE `id` = '".$id."' "); 
+					mysqli_query($link, "UPDATE `fine` SET  `issued_to` =  '".$issued_to."' , `issued_by` =  '".$issued_by."' , `location` =  '".$location."' , `date` =  '".$date."' , `time` =  '".$time."' , `date_time` =  '".$date_time."' , `offence_level` =  '".$offence_level."' , `offence_code` =  '".$offence_code."' , `plate_num` =  '".$plate_num."' , `remark` =  '".$remark."' , `payment_order_num` =  '".$payment_order_num."' , `signature_pic` =  '".$signature_pic."'  WHERE `id` = '".$id."' ");
+die_func(mysqli_error($link));
 					}elseif ($act_get == "delete") {
 						mysqli_query($link, "DELETE FROM `fine` WHERE id = '".$id_get."' ");
+die_func(mysqli_error($link));
 					}
 					header("location:"."fine.php");
 				}
@@ -67,10 +87,13 @@ $date = addslashes(htmlentities($_POST["date"], ENT_QUOTES));
 
 				if($act == "add") {
 					mysqli_query($link, "INSERT INTO `payment` (  `ticket_id` , `amount` , `date` ) VALUES ( '".$ticket_id."' , '".$amount."' , '".$date."' ) ");
+die_func(mysqli_error($link));
 				}elseif ($act == "edit") {
-					mysqli_query($link, "UPDATE `payment` SET  `ticket_id` =  '".$ticket_id."' , `amount` =  '".$amount."' , `date` =  '".$date."'  WHERE `id` = '".$id."' "); 
+					mysqli_query($link, "UPDATE `payment` SET  `ticket_id` =  '".$ticket_id."' , `amount` =  '".$amount."' , `date` =  '".$date."'  WHERE `id` = '".$id."' ");
+die_func(mysqli_error($link));
 					}elseif ($act_get == "delete") {
 						mysqli_query($link, "DELETE FROM `payment` WHERE id = '".$id_get."' ");
+die_func(mysqli_error($link));
 					}
 					header("location:"."payment.php");
 				}
@@ -85,10 +108,13 @@ $deadline_interest = addslashes(htmlentities($_POST["deadline_interest"], ENT_QU
 
 				if($act == "add") {
 					mysqli_query($link, "INSERT INTO `policy` (  `offense_code` , `original_amount` , `recurrence_fee` , `deadline_count` , `deadline_interest` ) VALUES ( '".$offense_code."' , '".$original_amount."' , '".$recurrence_fee."' , '".$deadline_count."' , '".$deadline_interest."' ) ");
+die_func(mysqli_error($link));
 				}elseif ($act == "edit") {
-					mysqli_query($link, "UPDATE `policy` SET  `offense_code` =  '".$offense_code."' , `original_amount` =  '".$original_amount."' , `recurrence_fee` =  '".$recurrence_fee."' , `deadline_count` =  '".$deadline_count."' , `deadline_interest` =  '".$deadline_interest."'  WHERE `id` = '".$id."' "); 
+					mysqli_query($link, "UPDATE `policy` SET  `offense_code` =  '".$offense_code."' , `original_amount` =  '".$original_amount."' , `recurrence_fee` =  '".$recurrence_fee."' , `deadline_count` =  '".$deadline_count."' , `deadline_interest` =  '".$deadline_interest."'  WHERE `id` = '".$id."' ");
+die_func(mysqli_error($link));
 					}elseif ($act_get == "delete") {
 						mysqli_query($link, "DELETE FROM `policy` WHERE id = '".$id_get."' ");
+die_func(mysqli_error($link));
 					}
 					header("location:"."policy.php");
 				}
@@ -102,10 +128,13 @@ $non_first_time_fee = addslashes(htmlentities($_POST["non_first_time_fee"], ENT_
 
 				if($act == "add") {
 					mysqli_query($link, "INSERT INTO `policy_1` (  `level` , `points` , `first_time_fee` , `non_first_time_fee` ) VALUES ( '".$level."' , '".$points."' , '".$first_time_fee."' , '".$non_first_time_fee."' ) ");
+die_func(mysqli_error($link));
 				}elseif ($act == "edit") {
-					mysqli_query($link, "UPDATE `policy_1` SET  `level` =  '".$level."' , `points` =  '".$points."' , `first_time_fee` =  '".$first_time_fee."' , `non_first_time_fee` =  '".$non_first_time_fee."'  WHERE `id` = '".$id."' "); 
+					mysqli_query($link, "UPDATE `policy_1` SET  `level` =  '".$level."' , `points` =  '".$points."' , `first_time_fee` =  '".$first_time_fee."' , `non_first_time_fee` =  '".$non_first_time_fee."'  WHERE `id` = '".$id."' ");
+die_func(mysqli_error($link));
 					}elseif ($act_get == "delete") {
 						mysqli_query($link, "DELETE FROM `policy_1` WHERE id = '".$id_get."' ");
+die_func(mysqli_error($link));
 					}
 					header("location:"."policy_1.php");
 				}
@@ -117,10 +146,13 @@ $months_suspended = addslashes(htmlentities($_POST["months_suspended"], ENT_QUOT
 
 				if($act == "add") {
 					mysqli_query($link, "INSERT INTO `policy_2` (  `level` , `months_suspended` ) VALUES ( '".$level."' , '".$months_suspended."' ) ");
+die_func(mysqli_error($link));
 				}elseif ($act == "edit") {
-					mysqli_query($link, "UPDATE `policy_2` SET  `level` =  '".$level."' , `months_suspended` =  '".$months_suspended."'  WHERE `id` = '".$id."' "); 
+					mysqli_query($link, "UPDATE `policy_2` SET  `level` =  '".$level."' , `months_suspended` =  '".$months_suspended."'  WHERE `id` = '".$id."' ");
+die_func(mysqli_error($link));
 					}elseif ($act_get == "delete") {
 						mysqli_query($link, "DELETE FROM `policy_2` WHERE id = '".$id_get."' ");
+die_func(mysqli_error($link));
 					}
 					header("location:"."policy_2.php");
 				}
@@ -133,10 +165,13 @@ $points = addslashes(htmlentities($_POST["points"], ENT_QUOTES));
 
 				if($act == "add") {
 					mysqli_query($link, "INSERT INTO `policy_3` (  `days_overdue` , `percentage` , `points` ) VALUES ( '".$days_overdue."' , '".$percentage."' , '".$points."' ) ");
+die_func(mysqli_error($link));
 				}elseif ($act == "edit") {
-					mysqli_query($link, "UPDATE `policy_3` SET  `days_overdue` =  '".$days_overdue."' , `percentage` =  '".$percentage."' , `points` =  '".$points."'  WHERE `id` = '".$id."' "); 
+					mysqli_query($link, "UPDATE `policy_3` SET  `days_overdue` =  '".$days_overdue."' , `percentage` =  '".$percentage."' , `points` =  '".$points."'  WHERE `id` = '".$id."' ");
+die_func(mysqli_error($link));
 					}elseif ($act_get == "delete") {
 						mysqli_query($link, "DELETE FROM `policy_3` WHERE id = '".$id_get."' ");
+die_func(mysqli_error($link));
 					}
 					header("location:"."policy_3.php");
 				}
@@ -148,21 +183,24 @@ $schedule = addslashes(htmlentities($_POST["schedule"], ENT_QUOTES));
 
 				if($act == "add") {
 					mysqli_query($link, "INSERT INTO `report_subscriber` (  `email` , `schedule` ) VALUES ( '".$email."' , '".$schedule."' ) ");
+die_func(mysqli_error($link));
 				}elseif ($act == "edit") {
-					mysqli_query($link, "UPDATE `report_subscriber` SET  `email` =  '".$email."' , `schedule` =  '".$schedule."'  WHERE `id` = '".$id."' "); 
+					mysqli_query($link, "UPDATE `report_subscriber` SET  `email` =  '".$email."' , `schedule` =  '".$schedule."'  WHERE `id` = '".$id."' ");
+die_func(mysqli_error($link));
 					}elseif ($act_get == "delete") {
 						mysqli_query($link, "DELETE FROM `report_subscriber` WHERE id = '".$id_get."' ");
+die_func(mysqli_error($link));
 					}
 					header("location:"."report_subscriber.php");
 				}
 				
 				if($cat == "user" || $cat_get == "user") {
 					$username = addslashes(htmlentities($_POST["username"], ENT_QUOTES));
-$password = addslashes(htmlentities($_POST["password"], ENT_QUOTES));
-$status = addslashes(htmlentities($_POST["status"], ENT_QUOTES));
-$suspended_for = addslashes(htmlentities($_POST["suspended_for"], ENT_QUOTES));
-$points = addslashes(htmlentities($_POST["points"], ENT_QUOTES));
-$first_time = addslashes(htmlentities($_POST["first_time"], ENT_QUOTES));
+$password = "inactive";
+$status = "active";
+$suspended_for = 0;
+$points = 0;
+$first_time = true;
 $first_name = addslashes(htmlentities($_POST["first_name"], ENT_QUOTES));
 $middle_name = addslashes(htmlentities($_POST["middle_name"], ENT_QUOTES));
 $last_name = addslashes(htmlentities($_POST["last_name"], ENT_QUOTES));
@@ -172,7 +210,7 @@ $role = addslashes(htmlentities($_POST["role"], ENT_QUOTES));
 $email = addslashes(htmlentities($_POST["email"], ENT_QUOTES));
 $level = addslashes(htmlentities($_POST["level"], ENT_QUOTES));
 $region = addslashes(htmlentities($_POST["region"], ENT_QUOTES));
-$authority = addslashes(htmlentities($_POST["authority"], ENT_QUOTES));
+$authority = "NOT_APPLICABLE";
 $yob = addslashes(htmlentities($_POST["yob"], ENT_QUOTES));
 $nationality = addslashes(htmlentities($_POST["nationality"], ENT_QUOTES));
 $subcity = addslashes(htmlentities($_POST["subcity"], ENT_QUOTES));
@@ -180,11 +218,14 @@ $woreda = addslashes(htmlentities($_POST["woreda"], ENT_QUOTES));
 
 
 				if($act == "add") {
-					mysqli_query($link, "INSERT INTO `user` (  `username` , `password` , `status` , `suspended_for` , `points` , `first_time` , `first_name` , `middle_name` , `last_name` , `phone_num` , `sex` , `role` , `email` , `level` , `region` , `authority` , `yob` , `nationality` , `subcity` , `woreda` ) VALUES ( '".$username."' , '".md5($password)."', '".$status."' , '".$suspended_for."' , '".$points."' , '".$first_time."' , '".$first_name."' , '".$middle_name."' , '".$last_name."' , '".$phone_num."' , '".$sex."' , '".$role."' , '".$email."' , '".$level."' , '".$region."' , '".$authority."' , '".$yob."' , '".$nationality."' , '".$subcity."' , '".$woreda."' ) ");
+					mysqli_query($link, "INSERT INTO `user` (  `username` , `password` , `status` , `suspended_for` , `points` , `first_time` , `first_name` , `middle_name` , `last_name` , `phone_num` , `sex` , `role` , `email` , `level` , `region` , `authority` , `yob` , `nationality` , `subcity` , `woreda` ) VALUES ( '".$username."' , '".$password."', '".$status."' , '".$suspended_for."' , '".$points."' , '".$first_time."' , '".$first_name."' , '".$middle_name."' , '".$last_name."' , '".$phone_num."' , '".$sex."' , '".$role."' , '".$email."' , '".$level."' , '".$region."' , '".$authority."' , '".$yob."' , '".$nationality."' , '".$subcity."' , '".$woreda."' ) ");
+die_func(mysqli_error($link));
 				}elseif ($act == "edit") {
-					mysqli_query($link, "UPDATE `user` SET  `username` =  '".$username."' , `status` =  '".$status."' , `suspended_for` =  '".$suspended_for."' , `points` =  '".$points."' , `first_time` =  '".$first_time."' , `first_name` =  '".$first_name."' , `middle_name` =  '".$middle_name."' , `last_name` =  '".$last_name."' , `phone_num` =  '".$phone_num."' , `sex` =  '".$sex."' , `role` =  '".$role."' , `email` =  '".$email."' , `level` =  '".$level."' , `region` =  '".$region."' , `authority` =  '".$authority."' , `yob` =  '".$yob."' , `nationality` =  '".$nationality."' , `subcity` =  '".$subcity."' , `woreda` =  '".$woreda."'  WHERE `id` = '".$id."' "); 
+					mysqli_query($link, "UPDATE `user` SET  `username` =  '".$username."' , `status` =  '".$status."' , `suspended_for` =  '".$suspended_for."' , `points` =  '".$points."' , `first_time` =  '".$first_time."' , `first_name` =  '".$first_name."' , `middle_name` =  '".$middle_name."' , `last_name` =  '".$last_name."' , `phone_num` =  '".$phone_num."' , `sex` =  '".$sex."' , `role` =  '".$role."' , `email` =  '".$email."' , `level` =  '".$level."' , `region` =  '".$region."' , `authority` =  '".$authority."' , `yob` =  '".$yob."' , `nationality` =  '".$nationality."' , `subcity` =  '".$subcity."' , `woreda` =  '".$woreda."'  WHERE `id` = '".$id."' ");
+die_func(mysqli_error($link));
 					}elseif ($act_get == "delete") {
 						mysqli_query($link, "DELETE FROM `user` WHERE id = '".$id_get."' ");
+die_func(mysqli_error($link));
 					}
 					header("location:"."user.php");
 				}
@@ -198,10 +239,13 @@ $role = addslashes(htmlentities($_POST["role"], ENT_QUOTES));
 
 				if($act == "add") {
 					mysqli_query($link, "INSERT INTO `users` (  `name` , `email` , `password` , `role` ) VALUES ( '".$name."' , '".$email."' , '".md5($password)."', '".$role."' ) ");
+die_func(mysqli_error($link));
 				}elseif ($act == "edit") {
-					mysqli_query($link, "UPDATE `users` SET  `name` =  '".$name."' , `email` =  '".$email."' , `role` =  '".$role."'  WHERE `id` = '".$id."' "); 
+					mysqli_query($link, "UPDATE `users` SET  `name` =  '".$name."' , `email` =  '".$email."' , `role` =  '".$role."'  WHERE `id` = '".$id."' ");
+die_func(mysqli_error($link));
 					}elseif ($act_get == "delete") {
 						mysqli_query($link, "DELETE FROM `users` WHERE id = '".$id_get."' ");
+die_func(mysqli_error($link));
 					}
 					header("location:"."users.php");
 				}
@@ -213,10 +257,13 @@ $license_id = addslashes(htmlentities($_POST["license_id"], ENT_QUOTES));
 
 				if($act == "add") {
 					mysqli_query($link, "INSERT INTO `ussd` (  `session_id` , `license_id` ) VALUES ( '".$session_id."' , '".$license_id."' ) ");
+die_func(mysqli_error($link));
 				}elseif ($act == "edit") {
-					mysqli_query($link, "UPDATE `ussd` SET  `session_id` =  '".$session_id."' , `license_id` =  '".$license_id."'  WHERE `id` = '".$id."' "); 
+					mysqli_query($link, "UPDATE `ussd` SET  `session_id` =  '".$session_id."' , `license_id` =  '".$license_id."'  WHERE `id` = '".$id."' ");
+die_func(mysqli_error($link));
 					}elseif ($act_get == "delete") {
 						mysqli_query($link, "DELETE FROM `ussd` WHERE id = '".$id_get."' ");
+die_func(mysqli_error($link));
 					}
 					header("location:"."ussd.php");
 				}
@@ -230,11 +277,17 @@ $year_of_manuf = addslashes(htmlentities($_POST["year_of_manuf"], ENT_QUOTES));
 
 				if($act == "add") {
 					mysqli_query($link, "INSERT INTO `vehicle` (  `plate_num` , `motor_type` , `model_type` , `year_of_manuf` ) VALUES ( '".$plate_num."' , '".$motor_type."' , '".$model_type."' , '".$year_of_manuf."' ) ");
+die_func(mysqli_error($link));
 				}elseif ($act == "edit") {
-					mysqli_query($link, "UPDATE `vehicle` SET  `plate_num` =  '".$plate_num."' , `motor_type` =  '".$motor_type."' , `model_type` =  '".$model_type."' , `year_of_manuf` =  '".$year_of_manuf."'  WHERE `id` = '".$id."' "); 
+					mysqli_query($link, "UPDATE `vehicle` SET  `plate_num` =  '".$plate_num."' , `motor_type` =  '".$motor_type."' , `model_type` =  '".$model_type."' , `year_of_manuf` =  '".$year_of_manuf."'  WHERE `id` = '".$id."' ");
+die_func(mysqli_error($link));
 					}elseif ($act_get == "delete") {
 						mysqli_query($link, "DELETE FROM `vehicle` WHERE id = '".$id_get."' ");
+die_func(mysqli_error($link));
 					}
 					header("location:"."vehicle.php");
 				}
+			}catch(Exception $e) {
+					die_func($e->getMessage());
+				  }
 				?>

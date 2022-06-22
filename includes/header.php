@@ -37,7 +37,6 @@
     <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
     <meta name="author" content="Łukasz Holeczek">
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
-    <title>CoreUI Free Bootstrap Admin Template</title>
     <link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="assets/favicon/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="assets/favicon/apple-icon-72x72.png">
@@ -47,10 +46,10 @@
     <link rel="apple-touch-icon" sizes="144x144" href="assets/favicon/apple-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="assets/favicon/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="TRVTPS.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="TRVTPS.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="TRVTPS.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="TRVTPS.png">
     <link rel="manifest" href="assets/favicon/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="assets/favicon/ms-icon-144x144.png">
@@ -84,11 +83,11 @@
 
     <div class="wrapper">
         <!-- Sidebar Holder -->
-        <nav id="sidebar" class="bg-primary">
-            <!-- <div style="background-color: #2780e3"> -->
+        <nav id="sidebar" class="bg-primary" style="background-color: #4C8A72 ">
+            <!-- <div style="background-color: #4C8A72"> -->
             <div class="sidebar-header">
                 <h3>
-                    Trvtps Admin Panel<br>
+                    Trvtps<br>
                     <i id="sidebarCollapse" class="glyphicon glyphicon-circle-arrow-left"></i>
                 </h3>
                 <strong>
@@ -111,8 +110,6 @@
                             class="pull-right"><?=counting("fine", "id")?></span></a></li>
                 <li><a href="payment.php"> <i class="glyphicon glyphicon-chevron-down"></i>Payment <span
                             class="pull-right"><?=counting("payment", "id")?></span></a></li>
-                <li><a href="policy.php"> <i class="glyphicon glyphicon-text-width"></i>Policy <span
-                            class="pull-right"><?=counting("policy", "id")?></span></a></li>
                 <li><a href="policy_1.php"> <i class="glyphicon glyphicon-tag"></i>Policy_1 <span
                             class="pull-right"><?=counting("policy_1", "id")?></span></a></li>
                 <li><a href="policy_2.php"> <i class="glyphicon glyphicon-rub"></i>Policy_2 <span
@@ -123,12 +120,8 @@
                             class="pull-right"><?=counting("report_subscriber", "id")?></span></a></li>
                 <li><a href="user.php"> <i class="glyphicon glyphicon-floppy-remove"></i>User <span
                             class="pull-right"><?=counting("user", "id")?></span></a></li>
-                <li><a href="users.php"> <i class="glyphicon glyphicon-list-alt"></i>Users <span
+                <li><a href="users.php"> <i class="glyphicon glyphicon-list-alt"></i>Admin <span
                             class="pull-right"><?=counting("users", "id")?></span></a></li>
-                <li><a href="ussd.php"> <i class="glyphicon glyphicon-download"></i>Ussd <span
-                            class="pull-right"><?=counting("ussd", "id")?></span></a></li>
-                <li><a href="vehicle.php"> <i class="glyphicon glyphicon-paperclip"></i>Vehicle <span
-                            class="pull-right"><?=counting("vehicle", "id")?></span></a></li>
                 <li><a href="logout.php"><i class="glyphicon glyphicon-log-out"></i> Logout</a></li>
             </ul>
             <!-- </div> -->

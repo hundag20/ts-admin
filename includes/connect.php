@@ -46,21 +46,22 @@ DONE: 11. do delete subscribers
 //DONE: 5. (dognut) total number of tickets issued in each violation level (comparisons dognut)
 //DONE: 2. add forgot password for officer
 //DONE: 3. add forgot password for admin
+//DONE :1. do pdf formatted report
+//DONE: 4. do error handling/viewing
+//DONE: 8. fix add new user 
 
-TODO:1. do pdf formatted report
+TODO:1. remove pwd from returned data
 
-TODO:2. remove pwd from returned data
+TODO:7. remove edit and delete for some data 
 
-TODO:3. do validations at save.php
+TODO:2. do validations at edit-smth.php
 
-TODO:4. do error handling/viewing
+TODO:3. do validations for file upload
 
-TODO:5. add progress animation for add file
+TODO:4. add progress animation for add file
 
-TODO:6. fix ui {input fields, coloring}
+TODO:5. fix ui {input fields, coloring}
 
-TODO:7. download the images button for charts 
-TODO:8. fix add new user 
 
 NOTE: handle all server side input/data validation @ save.php
 NOTE: handle all sql errors like duplicate entry @ save.php

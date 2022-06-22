@@ -58,7 +58,7 @@ a, a:hover, a:focus {
 
 #sidebar .sidebar-header {
 	padding: 10px 20px;
-	background: #373a3c
+	background: #235D63
 }
 
 #sidebar .sidebar-header strong {
@@ -72,7 +72,7 @@ a, a:hover, a:focus {
 	display: block;
 }
 #sidebar ul li a:hover {
-	color: #2780e3;
+	color: #4C8A72;
 	background: #fff;
 }
 #sidebar ul li a i {
@@ -81,7 +81,7 @@ a, a:hover, a:focus {
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
 	color: #fff;
-	background: #1a6dca;
+	background: #4C8A72;
 }
 
 
@@ -96,7 +96,7 @@ a, a:hover, a:focus {
 #sidebar ul ul a {
 	font-size: 0.9em !important;
 	padding-left: 30px !important;
-	background: #1a6dca;
+	background: #4C8A72;
 }
 
 .visit {
@@ -113,7 +113,7 @@ a, a:hover, a:focus {
 
 .visit a {
 	background: #fff;
-	color: #7386D5;
+	color: #4C8A72;
 	padding: 10px
 }
 

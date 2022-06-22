@@ -34,14 +34,18 @@
     <div class="container" style="margin-top:30px">
         <div class="row">
             <div class="col-sm-6 col-md-4 col-md-offset-4">
-                <h1 class="text-center">TRTVPS Admin Panel</h1>
+                <div style="text-align: center;">
+                    <img src="TRVTPS.png" width="100" height="150">
+                </div>
+                <h1 class="text-center">TRVTPS-Admin</h1>
                 <h2 class="text-center">Sign in</h2>
                 <div>
                     <form action="login.php" method="post" name="login">
                         <input type="text" class="form-control" placeholder="Email" id="email" name="email" required
                             autofocus><br>
                         <input type="password" class="form-control" placeholder="Password" name="password" required><br>
-                        <button class="btn btn-lg btn-primary btn-block" type="submit">
+                        <button style="background-color:#4C8A72;" class="btn btn-lg btn-primary btn-block"
+                            type="submit">
                             Sign in
                         </button>
                         <a onClick="myFunc()">forgot password?<a>
