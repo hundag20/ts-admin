@@ -1,13 +1,13 @@
 <?php
 $role = $_POST["role"];
-function die_func($msg){
+function die_func2($msg){
 	echo '<script type="text/javascript">',
 	'alert("'.$msg.'");',
 	'history.back()',
 	'</script>'
 	;
 }
-error_reporting(E_ERROR | E_PARSE);
+// error_reporting(E_ERROR | E_PARSE);
 try{
 if ($_FILES["my_file"]["name"] != "") {
   // Where the file is going to be stored
@@ -29,7 +29,7 @@ if ($_FILES["my_file"]["name"] != "") {
     $columns = [];
     $column_count = 0;
     $driver_column_count = 12;
-    $officer_column_count = 12;
+    $officer_column_count = 13;
     $driver_columns = [
       "username",
       "first_name",
@@ -74,15 +74,15 @@ if ($_FILES["my_file"]["name"] != "") {
 
         if ($row == 1) {
           if ($num != $column_count) {
-            echo "invalid number of fields in the file";
             fclose($handle);
+            throw new Exception("invalid number of fields in the file");
             $data = false;
             return;
           }
           for ($c = 0; $c < $num; $c++) {
             if ($data[$c] != $columns[$c]) {
-              throw new Exception("invalid field(".$data[$c].") in the file");
               fclose($handle);
+              throw new Exception("invalid field(".$data[$c].") in the file");
               $data = false;
               return;
             }
@@ -103,6 +103,6 @@ if ($_FILES["my_file"]["name"] != "") {
   }
 }
 }catch(Exception $e) {
-  die_func($e->getMessage());
+  die_func2($e->getMessage());
   }
 ?>
