@@ -1,6 +1,14 @@
 <?php
 $role = $_POST["role"];
-
+function die_func($msg){
+	echo '<script type="text/javascript">',
+	'alert("'.$msg.'");',
+	'history.back()',
+	'</script>'
+	;
+}
+error_reporting(E_ERROR | E_PARSE);
+try{
 if ($_FILES["my_file"]["name"] != "") {
   // Where the file is going to be stored
   $target_dir = "temp/";
@@ -13,10 +21,9 @@ if ($_FILES["my_file"]["name"] != "") {
 
   // Check file format
   if ($ext != "csv") {
-    echo "File type not allowed";
+    throw new Exception("File type not allowed");
   } else {
     move_uploaded_file($temp_name, $path_filename_ext);
-    echo "Congratulations! File Uploaded Successfully.";
 
     $row = 1;
     $columns = [];
@@ -44,6 +51,7 @@ if ($_FILES["my_file"]["name"] != "") {
       "last_name",
       "phone_num",
       "sex",
+      "email",
       "level",
       "region",
       "yob",
@@ -73,7 +81,7 @@ if ($_FILES["my_file"]["name"] != "") {
           }
           for ($c = 0; $c < $num; $c++) {
             if ($data[$c] != $columns[$c]) {
-              echo "invalid field(".$data[$c].") in the file";
+              throw new Exception("invalid field(".$data[$c].") in the file");
               fclose($handle);
               $data = false;
               return;
@@ -94,4 +102,7 @@ if ($_FILES["my_file"]["name"] != "") {
     }
   }
 }
+}catch(Exception $e) {
+  die_func($e->getMessage());
+  }
 ?>
